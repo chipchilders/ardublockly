@@ -73,7 +73,7 @@ Blockly.Arduino['TurnRight'] = function(block) {
         "  digitalWrite(control_2_right,LOW);\n" +
         "  analogWrite(speed_pin_left, 100);\n" +
         "  analogWrite(speed_pin_right, 100);\n" +
-        "  delay(" + turn_time*1000 + ");\n" +
+        "  delay(turn_time*1000);\n" +
         "  analogWrite(speed_pin_left, 0);\n" +
         "  analogWrite(speed_pin_right, 0);\n" +
         "}";
@@ -92,7 +92,7 @@ Blockly.Arduino['TurnLeft'] = function(block) {
         "  digitalWrite(control_2_right,HIGH);\n" +
         "  analogWrite(speed_pin_left, 100);\n" +
         "  analogWrite(speed_pin_right, 100);\n" +
-        "  delay(" + turn_time*1000 + ");\n" +
+        "  delay(turn_time*1000);\n" +
         "  analogWrite(speed_pin_left, 0);\n" +
         "  analogWrite(speed_pin_right, 0);\n" +
         "}";
