@@ -231,4 +231,17 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="spi_transfer"></block>' +
 '    <block type="spi_transfer_return"></block>' +
 '  </category>' +
+'  <sep></sep>' +
+'  <category id="catPING" name="PING">' +
+'    <block type="ping_sensor_pin_setup"></block>' +
+'    <block type="Ping"></block>' +
+'  </category>' +
+'  <category id="catRoverControl">' +
+'    <block type="Forward"></block>' +
+'    <block type="Backward"></block>' +
+'    <block type="TurnRight"></block>' +
+'    <block type="TurnLeft"></block>' +
+'    <block type="wheel_pin_setup"></block>' +
+'    <block type="Stop"></block>' +
+'  </category>' +
 '</xml>';
