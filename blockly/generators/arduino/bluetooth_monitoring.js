@@ -26,7 +26,7 @@ Blockly.Arduino['bluetooth_print'] = function(block) {
     var checkbox_name = (block.getFieldValue('NEW_LINE') == 'TRUE');
   
     if (checkbox_name) {
-      var code = 'myBluetoothSerial.println(' + content + ');\n';
+      var code = 'myBluetoothSerial.println(String(millis()) + String(" ") + String(' + content + '));\n';
     } else {
       var code = 'myBluetoothSerial.print(' + content + ');\n';
     }
