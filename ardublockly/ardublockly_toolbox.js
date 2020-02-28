@@ -244,4 +244,8 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="wheel_pin_setup"></block>' +
 '    <block type="Stop"></block>' +
 '  </category>' +
+'  <category id="catBluetooth">' +
+'    <block type="bluetooth_module_setup"></block>' +
+'    <block type="bluetooth_print"></block>' +
+'  </category>' +
 '</xml>';

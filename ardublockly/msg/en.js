@@ -104,4 +104,5 @@ Ardublockly.LOCALISED_TEXT = {
   catComms: "Comms",
   catPING: "Ping Sensor",
   catRoverControl: "Rover Control",
+  catBluetooth: "Bluetooth Communication",
 };
