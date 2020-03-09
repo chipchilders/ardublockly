@@ -36,11 +36,11 @@ Blockly.Blocks['bluetooth_module_setup'] = {
 	  this.appendDummyInput("bluetooth_pin_rx")
 		  .setAlign(Blockly.ALIGN_RIGHT)
 		  .appendField("RX PIN (Digital) - Connect to TX of Bluetooth module")
-		  .appendField(new Blockly.FieldTextInput("9", Blockly.Arduino.pinDigitalValidator), "bluetooth_pin_rx");
+		  .appendField(new Blockly.FieldTextInput("5", Blockly.Arduino.pinDigitalValidator), "bluetooth_pin_rx");
 	  this.appendDummyInput("bluetooth_pin_tx")
 		  .setAlign(Blockly.ALIGN_RIGHT)
 		  .appendField("TX PIN (Digital) - Connect to RX of Bluetooth module")
-		  .appendField(new Blockly.FieldTextInput("8", Blockly.Arduino.pinDigitalValidator), "bluetooth_pin_tx");
+		  .appendField(new Blockly.FieldTextInput("6", Blockly.Arduino.pinDigitalValidator), "bluetooth_pin_tx");
 	  this.setInputsInline(false);
 	  this.setPreviousStatement(false);
 	  this.setNextStatement(false);

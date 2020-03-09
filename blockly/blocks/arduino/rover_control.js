@@ -69,7 +69,7 @@ Blockly.Blocks['Forward'] = {
 	init: function() {
 		this.appendDummyInput("Speed")
 			.appendField("Move forward with speed:")
-			.appendField(new Blockly.FieldNumber("100"), "speed");
+			.appendField(new Blockly.FieldNumber("200"), "speed");
 		this.setInputsInline(false);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
@@ -83,7 +83,7 @@ Blockly.Blocks['Backward'] = {
 	init: function() {
 		this.appendDummyInput("Speed")
 			.appendField("Move backward with speed:")
-			.appendField(new Blockly.FieldNumber("100"), "speed");
+			.appendField(new Blockly.FieldNumber("200"), "speed");
 		this.setInputsInline(false);
 		this.setPreviousStatement(true);
 		this.setNextStatement(true);
@@ -94,6 +94,32 @@ Blockly.Blocks['Backward'] = {
 };
 
 Blockly.Blocks['TurnRight'] = {
+	init: function() {
+		this.appendDummyInput("TurnRight")
+			.appendField("Turn right until stopped.")
+		this.setInputsInline(false);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+		this.setColour(60);
+		this.setTooltip('This block will till the rover to turn to the right until stopped.');
+		this.setHelpUrl('https://www.arduino.cc/reference/en/');
+	  }
+};
+
+Blockly.Blocks['TurnLeft'] = {
+	init: function() {
+		this.appendDummyInput("TurnLeft")
+			.appendField("Turn left until stopped.")
+		this.setInputsInline(false);
+		this.setPreviousStatement(true);
+		this.setNextStatement(true);
+		this.setColour(60);
+		this.setTooltip('This block will till the rover to turn to the left until stopped.');
+		this.setHelpUrl('https://www.arduino.cc/reference/en/');
+	  }
+};
+
+Blockly.Blocks['TurnRightFor'] = {
 	init: function() {
 		this.appendDummyInput("Seconds")
 			.appendField("Turn right for")
@@ -108,7 +134,7 @@ Blockly.Blocks['TurnRight'] = {
 	  }
 };
 
-Blockly.Blocks['TurnLeft'] = {
+Blockly.Blocks['TurnLeftFor'] = {
 	init: function() {
 		this.appendDummyInput("Seconds")
 			.appendField("Turn left for")

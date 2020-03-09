@@ -37,8 +37,8 @@ Blockly.Arduino['Forward'] = function(block) {
     Blockly.Arduino.userFunctions_['define_rover_forward'] = "void Forward(int motorSpeed) {\n" +
         "  digitalWrite(control_1_left,LOW);\n" +
         "  digitalWrite(control_2_left,HIGH);\n" +
-        "  digitalWrite(control_1_right,HIGH);\n" +
-        "  digitalWrite(control_2_right,LOW);\n" +
+        "  digitalWrite(control_1_right,LOW);\n" +
+        "  digitalWrite(control_2_right,HIGH);\n" +
         "  analogWrite(speed_pin_left, motorSpeed);\n" +
         "  analogWrite(speed_pin_right, motorSpeed);\n" +
         "}";
@@ -53,8 +53,8 @@ Blockly.Arduino['Backward'] = function(block) {
     Blockly.Arduino.userFunctions_['define_rover_backward'] = "void Backward(int motorSpeed) {\n" +
         "  digitalWrite(control_1_left,HIGH);\n" +
         "  digitalWrite(control_2_left,LOW);\n" +
-        "  digitalWrite(control_1_right,LOW);\n" +
-        "  digitalWrite(control_2_right,HIGH);\n" +
+        "  digitalWrite(control_1_right,HIGH);\n" +
+        "  digitalWrite(control_2_right,LOW);\n" +
         "  analogWrite(speed_pin_left, motorSpeed);\n" +
         "  analogWrite(speed_pin_right, motorSpeed);\n" +
         "}";
@@ -64,39 +64,70 @@ Blockly.Arduino['Backward'] = function(block) {
 };
 
 Blockly.Arduino['TurnRight'] = function(block) {
-    var turn_time = this.getFieldValue('seconds');
     var code = "";
-    Blockly.Arduino.userFunctions_['define_rover_turnright'] = "void TurnRight(int turn_time) {\n" +
-        "  digitalWrite(control_1_left,HIGH);\n" +
-        "  digitalWrite(control_2_left,LOW);\n" +
+    Blockly.Arduino.userFunctions_['define_rover_turnright'] = "void TurnRight() {\n" +
+        "  digitalWrite(control_1_left,LOW);\n" +
+        "  digitalWrite(control_2_left,HIGH);\n" +
         "  digitalWrite(control_1_right,HIGH);\n" +
         "  digitalWrite(control_2_right,LOW);\n" +
-        "  analogWrite(speed_pin_left, 100);\n" +
-        "  analogWrite(speed_pin_right, 100);\n" +
-        "  delay(turn_time*1000);\n" +
-        "  analogWrite(speed_pin_left, 0);\n" +
-        "  analogWrite(speed_pin_right, 0);\n" +
+        "  analogWrite(speed_pin_left, 200);\n" +
+        "  analogWrite(speed_pin_right, 200);\n" +
         "}";
-    code = "TurnRight(" + turn_time + ");\n";
+    code = "TurnRight();\n";
 
     return code;
 };
 
-Blockly.Arduino['TurnLeft'] = function(block) {
+Blockly.Arduino['TurnLeftFor'] = function(block) {
     var turn_time = this.getFieldValue('seconds');
     var code = "";
-    Blockly.Arduino.userFunctions_['define_rover_turnleft'] = "void TurnLeft(int turn_time) {\n" +
-        "  digitalWrite(control_1_left,LOW);\n" +
-        "  digitalWrite(control_2_left,HIGH);\n" +
+    Blockly.Arduino.userFunctions_['define_rover_turnleft'] = "void TurnLeft() {\n" +
+        "  digitalWrite(control_1_left,HIGH);\n" +
+        "  digitalWrite(control_2_left,LOW);\n" +
         "  digitalWrite(control_1_right,LOW);\n" +
         "  digitalWrite(control_2_right,HIGH);\n" +
-        "  analogWrite(speed_pin_left, 100);\n" +
-        "  analogWrite(speed_pin_right, 100);\n" +
+        "  analogWrite(speed_pin_left, 200);\n" +
+        "  analogWrite(speed_pin_right, 200);\n" +
+        "}";
+    code = "TurnLeft();\n";
+
+    return code;
+};
+
+Blockly.Arduino['TurnRightFor'] = function(block) {
+    var turn_time = this.getFieldValue('seconds');
+    var code = "";
+    Blockly.Arduino.userFunctions_['define_rover_turnrightfor'] = "void TurnRightFor(int turn_time) {\n" +
+        "  digitalWrite(control_1_left,LOW);\n" +
+        "  digitalWrite(control_2_left,HIGH);\n" +
+        "  digitalWrite(control_1_right,HIGH);\n" +
+        "  digitalWrite(control_2_right,LOW);\n" +
+        "  analogWrite(speed_pin_left, 200);\n" +
+        "  analogWrite(speed_pin_right, 200);\n" +
         "  delay(turn_time*1000);\n" +
         "  analogWrite(speed_pin_left, 0);\n" +
         "  analogWrite(speed_pin_right, 0);\n" +
         "}";
-    code = "TurnLeft(" + turn_time + ");\n";
+    code = "TurnRightFor(" + turn_time + ");\n";
+
+    return code;
+};
+
+Blockly.Arduino['TurnLeftFor'] = function(block) {
+    var turn_time = this.getFieldValue('seconds');
+    var code = "";
+    Blockly.Arduino.userFunctions_['define_rover_turnleftfor'] = "void TurnLeftFor(int turn_time) {\n" +
+        "  digitalWrite(control_1_left,HIGH);\n" +
+        "  digitalWrite(control_2_left,LOW);\n" +
+        "  digitalWrite(control_1_right,LOW);\n" +
+        "  digitalWrite(control_2_right,HIGH);\n" +
+        "  analogWrite(speed_pin_left, 200);\n" +
+        "  analogWrite(speed_pin_right, 200);\n" +
+        "  delay(turn_time*1000);\n" +
+        "  analogWrite(speed_pin_left, 0);\n" +
+        "  analogWrite(speed_pin_right, 0);\n" +
+        "}";
+    code = "TurnLeftFor(" + turn_time + ");\n";
 
     return code;
 };

@@ -232,15 +232,26 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="spi_transfer_return"></block>' +
 '  </category>' +
 '  <sep></sep>' +
-'  <category id="catPING" name="PING">' +
+'  <category id="catCustomSensors" name="Sensors">' +
 '    <block type="ping_sensor_pin_setup"></block>' +
 '    <block type="Ping"></block>' +
+'    <block type="ir_obstacle_pin_setup"></block>' +
+'    <block type="IsObstacle"></block>' +
+'    <block type="lidar_setup"></block>' +
+'    <block type="lidar_get_cm"></block>' +
+'    <block type="lidar_get_mm"></block>' +
+'    <block type="orientation_sensor_setup"></block>' +
+'    <block type="orientation_sensor_x"></block>' +
+'    <block type="orientation_sensor_y"></block>' +
+'    <block type="orientation_sensor_z"></block>' +
 '  </category>' +
 '  <category id="catRoverControl">' +
 '    <block type="Forward"></block>' +
 '    <block type="Backward"></block>' +
 '    <block type="TurnRight"></block>' +
 '    <block type="TurnLeft"></block>' +
+'    <block type="TurnRightFor"></block>' +
+'    <block type="TurnLeftFor"></block>' +
 '    <block type="wheel_pin_setup"></block>' +
 '    <block type="Stop"></block>' +
 '  </category>' +
