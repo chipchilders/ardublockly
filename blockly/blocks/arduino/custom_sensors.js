@@ -183,3 +183,54 @@ Blockly.Blocks['lidar_setup'] = {
 		this.setHelpUrl('https://bitbucket.org/teckel12/arduino-new-ping/wiki/Home');
 	  }
   };
+
+  Blockly.Blocks['ultrasonic_sensor_pin_setup'] = {
+	init: function() {
+	  this.appendDummyInput()
+		  .appendField("Setup of ultrasonic sensor PINs");
+	  this.appendDummyInput()
+		  .appendField(" ");
+	  this.appendDummyInput()
+		  .appendField("Name of the sensor ")
+		  .appendField(
+			  new Blockly.FieldInstance('ultrasonic_sensor_name',
+										"Right",
+										true, false, false),
+			  'ultrasonic_sensor_name');
+	  this.appendDummyInput("ultrasonic_sensor_trigger_pin")
+		  .setAlign(Blockly.ALIGN_RIGHT)
+		  .appendField("Trigger PIN (Digital)")
+		  .appendField(new Blockly.FieldTextInput("4", Blockly.Arduino.pinDigitalValidator), "ultrasonic_sensor_trigger_pin");
+		  this.appendDummyInput("ultrasonic_sensor_echo_pin")
+		  .setAlign(Blockly.ALIGN_RIGHT)
+		  .appendField("Echo PIN (Digital)")
+		  .appendField(new Blockly.FieldTextInput("5", Blockly.Arduino.pinDigitalValidator), "ultrasonic_sensor_echo_pin");
+	  this.appendDummyInput("max_distance")
+		  .setAlign(Blockly.ALIGN_RIGHT)
+		  .appendField("Max Distance (in centimeters)")
+		  .appendField(new Blockly.FieldNumber("200"), "max_distance");
+	  this.setInputsInline(false);
+	  this.setPreviousStatement(false);
+	  this.setNextStatement(false);
+	  this.setColour(180);
+	  this.setTooltip('Used to setup an ultrasonic range sensor. Set each PIN correctly to match the wiring of the device.');
+	  this.setHelpUrl('https://bitbucket.org/teckel12/arduino-new-ping/wiki/Home');
+	}
+  };
+
+  Blockly.Blocks['ultrasonic_sensor_get_distance'] = {
+	init: function() {
+		this.appendDummyInput("Get distance")
+			.appendField("Get distance in cm from ultrasonic sensor ")
+			.appendField(
+				new Blockly.FieldInstance('ultrasonic_sensor_name',
+										  'Right',
+										  false, true, false),
+				'ultrasonic_sensor_name');
+		this.setInputsInline(false);
+		this.setOutput(true, "Number");
+		this.setColour(180);
+		this.setTooltip('This block will tell the rover to start moving forward at the specified speed.');
+		this.setHelpUrl('https://bitbucket.org/teckel12/arduino-new-ping/wiki/Home');
+	  }
+};

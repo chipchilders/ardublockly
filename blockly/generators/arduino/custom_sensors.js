@@ -90,7 +90,7 @@ Blockly.Arduino['lidar_setup'] = function(block) {
         "lenth_val=i2c_rx_buf[0];\n" +
         "lenth_val=lenth_val<<8;\n" +
         "lenth_val|=i2c_rx_buf[1];\n" +
-        "delay(300); \n" +
+        "delay(100); \n" +
         "return lenth_val;\n" +
         "}\n";
     return '';
@@ -151,3 +151,32 @@ Blockly.Arduino['lidar_setup'] = function(block) {
     code = "GetOrientation('Z')";
     return [code, Blockly.Arduino.ORDER_ATOMIC];
   };
+
+  Blockly.Arduino['ultrasonic_sensor_pin_setup'] = function(block) { // 4 5  2 3
+    var sensorName = block.getFieldValue('ultrasonic_sensor_name');
+    var value_trigger_pin = this.getFieldValue('ultrasonic_sensor_trigger_pin');
+    var value_echo_pin = this.getFieldValue('ultrasonic_sensor_echo_pin');
+    var value_max_distance = this.getFieldValue('max_distance');
+    Blockly.Arduino.includes_['setup_ping'] = '#include <NewPing.h>'
+    Blockly.Arduino.definitions_["ultrasonic_sensor_pin_setup" + sensorName] = 
+      "#define TRIGGER_PIN" + sensorName + " " + value_trigger_pin + "\n" + 
+      "#define ECHO_PIN" + sensorName + " " + value_echo_pin;
+    Blockly.Arduino.definitions_["max_distance" + sensorName] = "#define MAX_DISTANCE" + sensorName + " " + value_max_distance;
+    Blockly.Arduino.variables_["ultrasonic_sensor_pin_setup" + sensorName] = 
+        "NewPing sonar" + sensorName + "(TRIGGER_PIN" + sensorName + ", ECHO_PIN" + sensorName + ", MAX_DISTANCE" + sensorName + ");";
+    return '';
+  };
+
+  Blockly.Arduino['ultrasonic_sensor_get_distance'] = function(block) {
+    var sensorName = 'sonar' + block.getFieldValue('ultrasonic_sensor_name');
+    var code = "";
+    Blockly.Arduino.userFunctions_['ultrasonic_sensor_get_distance'] = "int UltrasonicDistanceCM(NewPing sensorName) {\n" +
+        "  int distance = sensorName.ping_cm();\n" +
+        "  delay(10);\n" +
+        "  if (distance == 0) distance = 1000;\n" +
+        "  return distance;\n" +
+        "}";
+    code = "UltrasonicDistanceCM(" + sensorName + ")";
+
+    return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
